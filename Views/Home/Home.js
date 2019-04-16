@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native'
+import ProgressBar from '../../Components/ProgressBar'
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,10 +22,9 @@ export default class Home extends Component {
           <Text style={styles.title}>OBJECTIF DU JOUR</Text>
 
           <View style = {[styles.bloc,styles.achievement]}>
-            <Text style={styles.achievementText}>67%</Text>
-            <View style= {styles.progressBar}>
-              <View style= {styles.progressBarInter}></View>
-            </View>
+
+            <ProgressBar percent={0.67} color="#D0FFFF"/>
+
             <Text style={styles.achievementText}>Encore 2 exercices !</Text>
           </View>
 
@@ -130,24 +130,6 @@ const styles = StyleSheet.create({
     color:"#000",
     fontFamily: 'FiraMedium'
   },
-  progressBar:{
-    width: width*0.75,
-    height: height*0.04,
-    borderRadius: height*0.02,
-    marginVertical: 5,
-    borderWidth: 2,
-    borderColor:"#333",
-    justifyContent: 'center'
-  },
-  progressBarInter:{
-    width: width*0.75*0.67,
-    height: height*0.04-4,
-    borderRadius: height*0.02,
-    marginVertical: 5,
-    backgroundColor: "#D0FFFF",
-  },
-
-
 
   training:{
     flexDirection: 'row',
