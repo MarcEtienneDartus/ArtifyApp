@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native'
 import ProgressBar from '../../Components/ProgressBar'
+import Colors from '../../shared/Colors';
 
 const { width, height } = Dimensions.get('window');
 
@@ -14,6 +15,9 @@ export default class Home extends Component {
   render() {
     return (
       <View style = {styles.container}>
+
+        <View style={styles.circle}></View>
+        <View style={styles.circle2}></View>
 
         <Image style={styles.image} source={require('../../assets/icon.png')} />
         
@@ -67,6 +71,29 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+
+  circle:{
+    height: width*0.45,
+    width: width*0.45,
+    borderRadius: width*0.225,
+    zIndex:0,
+    position:'absolute',
+    top: height/2,
+    right: 0-width*0.225,
+    backgroundColor: "#D2FFDF",
+  },
+
+  circle2:{
+    height: width*0.45,
+    width: width*0.45,
+    borderRadius: width*0.225,
+    zIndex:0,
+    position:'absolute',
+    top: height/4,
+    left: 0-width*0.2,
+    backgroundColor: "#D2FFDF",
+  },
+
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -102,10 +129,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     color:"#000",
-    fontFamily: 'FiraBold'
+    fontFamily: 'PoppinsBold'
   },
 
   bloc:{
+    backgroundColor: '#fff',
     marginTop: 5,
     width : width*0.9,
     padding : 10,
@@ -128,7 +156,7 @@ const styles = StyleSheet.create({
   achievementText:{
     fontSize: 15,
     color:"#000",
-    fontFamily: 'FiraMedium'
+    fontFamily: 'PoppinsMedium'
   },
 
   training:{
@@ -143,7 +171,7 @@ const styles = StyleSheet.create({
   exerciceTitle:{
     fontSize: 15,
     color:"#000",
-    fontFamily: 'FiraMedium'
+    fontFamily: 'PoppinsMedium'
   },
   exerciceImage:{
     width: width*0.2,

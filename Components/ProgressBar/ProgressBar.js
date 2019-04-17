@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   title:{
       color: "#000",
       fontSize:20,
-      fontFamily: 'FiraMedium',
+      fontFamily: 'PoppinsMedium',
       position: 'absolute',
       top:-5,
       left:0,

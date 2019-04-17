@@ -15,6 +15,9 @@ export default class UserProfile extends Component {
     return (
       <View style = {styles.container}>
         
+        <View style={styles.circle}></View>
+        <View style={styles.circle2}></View>
+
         <View style = {[styles.blocContainer,styles.skillsContainer]}>
           <Text style={styles.title}>RESUME DES COMPETENCES</Text>
           <View style = {[styles.bloc,styles.skills]}>
@@ -32,6 +35,11 @@ export default class UserProfile extends Component {
           </View>
         </View>
 
+        <TouchableOpacity style = {styles.logOut} onPress={()=>this.props.navigation.navigate('Login')}>
+          <Text style={styles.logOutText}>DECONNEXION</Text>
+        </TouchableOpacity>
+
+
       </View>
     )
   }
@@ -43,6 +51,29 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: 'center',
   },
+
+  circle:{
+    height: width*0.45,
+    width: width*0.45,
+    borderRadius: width*0.225,
+    zIndex:0,
+    position:'absolute',
+    top: height/2,
+    right: 0-width*0.225,
+    backgroundColor: "#D2FFDF",
+  },
+
+  circle2:{
+    height: width*0.45,
+    width: width*0.45,
+    borderRadius: width*0.225,
+    zIndex:0,
+    position:'absolute',
+    top: height/4,
+    left: 0-width*0.2,
+    backgroundColor: "#D2FFDF",
+  },
+
   blocContainer:{
     marginTop: 25,
     width: width*0.9,
@@ -52,9 +83,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     color:"#000",
-    fontFamily: 'FiraBold'
+    fontFamily: 'PoppinsBold'
   },
   bloc:{
+    backgroundColor: "#fff",
     marginTop: 5,
     width : width*0.9,
     padding : 10,
@@ -72,17 +104,32 @@ const styles = StyleSheet.create({
     shadowOpacity: 1.0,
   },
   skills:{
-    height: height*0.5,
+    height: height*0.45,
     justifyContent: 'space-around',
   },
   skillsText:{
     fontSize: 15,
     color:"#000",
-    fontFamily: 'FiraMedium'
+    fontFamily: 'PoppinsMedium'
   },
 
   summary:{
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+
+  logOut:{
+    marginTop: 20,
+    borderRadius: height*0.03,
+    height: height*0.06,
+    width: width*0.8,
+    backgroundColor: "#FF6666",
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  logOutText:{
+    fontFamily: 'PoppinsBold',
+    fontSize: 17,
+    color: '#fff',
   },
 })
