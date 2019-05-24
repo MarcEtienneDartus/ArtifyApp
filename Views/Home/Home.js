@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native'
 import ProgressBar from '../../Components/ProgressBar'
-import Colors from '../../shared/Colors';
 
 const { width, height } = Dimensions.get('window');
 

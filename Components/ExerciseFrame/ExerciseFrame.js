@@ -58,6 +58,8 @@ export default class ExerciseFrame extends Component {
     const { ExerciseType } = this.props;
     return (
       <View style = {styles.container}>
+        <View style={styles.circle}></View>
+        <View style={styles.circle2}></View>
         <View style={styles.title}>
           {this.imageExercise()}
           <Text style={styles.text}>{ExerciseType}</Text>
@@ -145,5 +147,26 @@ const styles = StyleSheet.create({
     width: width*0.13,
     height: width*0.13,
     borderRadius:10,
+  },
+  circle:{
+    height: width*0.45,
+    width: width*0.45,
+    borderRadius: width*0.225,
+    zIndex:0,
+    position:'absolute',
+    right: height/3,
+    top: 0-width*0.35,
+    backgroundColor: "#D2FFDF",
+  },
+
+  circle2:{
+    height: width*0.45,
+    width: width*0.45,
+    borderRadius: width*0.225,
+    zIndex:0,
+    position:'absolute',
+    right: height/4,
+    bottom: 0-width*0.2,
+    backgroundColor: "#D2FFDF",
   },
 })
