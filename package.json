@@ -8,8 +8,13 @@
   },
   "dependencies": {
     "expo": "^32.0.0",
+    "expo-asset-utils": "^1.1.1",
+    "expo-pixi": "^0.3.2",
+    "firebase": "^5.0.3",
+    "lottie-react-native": "^2.5.11",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-modal": "^9.0.0",
     "react-navigation": "^3.8.1"
   },
   "devDependencies": {

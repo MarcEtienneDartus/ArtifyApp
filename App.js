@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Platform, AsyncStorage, StatusBar, SafeAreaView } from 'react-native'
+import { StyleSheet, View, Platform, StatusBar, SafeAreaView } from 'react-native'
 import AppRoot from './Navigation/navigation';
 import { AppLoading, Font as expoFont } from 'expo';
+import Letter from './Views/Letter/Letter';
+import Syllable from './Views/Syllable/Syllable';
+import Word from './Views/Word/Word';
+import Writing from './Views/Writing/Writing';
 
 cacheFonts = fonts => {
   return fonts.map(font => expoFont.loadAsync(font));
@@ -53,6 +57,10 @@ export default class App extends Component {
   renderMain = assetsLoaded => (  
     assetsLoaded ? 
       <AppRoot />
+      // <Letter/>
+      // <Syllable/>
+      // <Word/>
+      // <Writing/>
       :
       <AppLoading
             startAsync={this.loadAssetsAsync}

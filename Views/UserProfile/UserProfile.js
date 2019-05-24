@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native'
 import ProgressBar from '../../Components/ProgressBar'
+import firebase from '../../Providers/firebase'
 
 const { width, height } = Dimensions.get('window');
 
@@ -8,6 +9,16 @@ export default class UserProfile extends Component {
 
   constructor(props){
     super(props)
+    // this.userUid = firebase.auth().currentUser.uid
+  }
+
+  componentDidMount(){
+    // firebase.database().ref('user/'+this.userUid+'/').once('value',snapshot=>{
+    //   if(snapshot.val() == null)
+    //   {
+    //     this.setState({contentLoaded: true, noData:true}, this.Animate())
+    //   }
+    // })
   }
 
 

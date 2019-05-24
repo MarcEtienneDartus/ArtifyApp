@@ -41,21 +41,21 @@ export default class Home extends Component {
           <View style = {[styles.bloc,styles.training]}>
           
             <View style={styles.exercice}>
-              <TouchableOpacity style={styles.imageContainer}>
+              <TouchableOpacity style={styles.imageContainer} onPress={()=>{this.props.navigation.navigate('Letter')}}>
                 <Image style = {styles.exerciceImage} source={require('../../assets/letters.png')}/>
               </TouchableOpacity>
               <Text style = {styles.exerciceTitle}>Lettres</Text>
             </View>
 
             <View style={styles.exercice}>
-              <TouchableOpacity style={styles.imageContainer}>
+              <TouchableOpacity style={styles.imageContainer} onPress={()=>{this.props.navigation.navigate('Syllable')}}>
                 <Image style = {styles.exerciceImage} source={require('../../assets/syll.png')}/>
               </TouchableOpacity>
               <Text style = {styles.exerciceTitle}>Syllabes</Text>
             </View>
 
             <View style={styles.exercice}>
-              <TouchableOpacity style={styles.imageContainer}>
+              <TouchableOpacity style={styles.imageContainer} onPress={()=>{this.props.navigation.navigate('Word')}}>
                 <Image style = {styles.exerciceImage} source={require('../../assets/words.png')}/>
               </TouchableOpacity>
               <Text style = {styles.exerciceTitle}>Mots</Text>

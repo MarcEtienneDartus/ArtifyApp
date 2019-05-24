@@ -14,6 +14,10 @@ import Home from '../Views/Home/Home';
 import Exercise from '../Views/Exercise/Exercise';
 import UserProfile from '../Views/UserProfile/UserProfile';
 
+import Letter from '../Views/Letter/Letter';
+import Syllable from '../Views/Syllable/Syllable';
+import Word from '../Views/Word/Word';
+
 import { CustomTabBar } from '../Components';
 import Colors from '../shared/Colors';
 
@@ -34,6 +38,27 @@ const HomeStack = createStackNavigator({
     },
     Home: {
         screen: Home,
+        navigationOptions: {
+            header: null,
+            animationEnabled: true,
+        }
+    },
+    Letter: {
+        screen: Letter,
+        navigationOptions: {
+            header: null,
+            animationEnabled: true,
+        }
+    },
+    Syllable: {
+        screen: Syllable,
+        navigationOptions: {
+            header: null,
+            animationEnabled: true,
+        }
+    },
+    Word: {
+        screen: Word,
         navigationOptions: {
             header: null,
             animationEnabled: true,
