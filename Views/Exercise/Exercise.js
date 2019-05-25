@@ -60,6 +60,10 @@ export default class Exercise extends Component {
 
         </View>
 
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Test')}}>
+                <Text>TEST ECRITURE</Text>
+        </TouchableOpacity>
+
       </View>
     )
   }

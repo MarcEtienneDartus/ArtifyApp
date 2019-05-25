@@ -18,6 +18,8 @@ import Letter from '../Views/Letter/Letter';
 import Syllable from '../Views/Syllable/Syllable';
 import Word from '../Views/Word/Word';
 
+import Test from '../Views/Test/Test';
+
 import { CustomTabBar } from '../Components';
 import Colors from '../shared/Colors';
 
@@ -83,6 +85,13 @@ HomeStack.navigationOptions = ({ navigation }) => {
 const ExerciseStack = createStackNavigator({
     Exercise: {
         screen: Exercise,
+        navigationOptions: {
+            header: null,
+            animationEnabled: true,
+        }
+    },
+    Test: {
+        screen: Test,
         navigationOptions: {
             header: null,
             animationEnabled: true,

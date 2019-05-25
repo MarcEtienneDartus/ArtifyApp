@@ -47,6 +47,7 @@ export default class Exercise extends Component {
               horizontal={true}
               contentContainerStyle={styles.list}
               renderItem={this.Button}
+              style={{marginTop:width*0.07}}
             />
             <FlatList
               data={list[1]}
@@ -70,12 +71,13 @@ const styles = StyleSheet.create({
   list:{
     marginLeft: 0.05* width,
     width: 0.85*height,
-    height: 0.1*width,
+    height: 0.15*width,
     marginRight: 0.05* width,
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   text:{
-    fontSize: 30,
+    fontSize: 50,
+    fontFamily:'Clicker',
   }
 })

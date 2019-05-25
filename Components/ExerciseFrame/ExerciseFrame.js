@@ -24,6 +24,9 @@ export default class ExerciseFrame extends Component {
   componentWillUnmount() {
     this.changeScreenOrientation(ScreenOrientation.Orientation.PORTRAIT)
   }
+  changeScreenOrientation(orientation) {
+    ScreenOrientation.allowAsync(orientation);
+  }
 
   componentDidMount() {
     setTimeout(() => {
@@ -31,9 +34,7 @@ export default class ExerciseFrame extends Component {
     }, 1000);
   }
 
-  changeScreenOrientation(orientation) {
-    ScreenOrientation.allowAsync(orientation);
-  }
+
 
   HandleSpeaker = () => {
     if(this.isSpeaking){

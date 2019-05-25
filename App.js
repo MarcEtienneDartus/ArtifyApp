@@ -43,6 +43,8 @@ export default class App extends Component {
       FiraLight: require('./assets/Fonts/Fira_Sans/FiraSans-Light.ttf'),
       FiraXLight: require('./assets/Fonts/Fira_Sans/FiraSans-ExtraLight.ttf'),
       FiraThin: require('./assets/Fonts/Fira_Sans/FiraSans-Thin.ttf'),
+      
+      Clicker: require('./assets/Fonts/Clicker/ClickerScript-Regular.ttf'),
     }]);
     await Promise.all([...fontAssets]);
   }
