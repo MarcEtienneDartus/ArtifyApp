@@ -1,17 +1,33 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native'
 import ProgressBar from '../../Components/ProgressBar'
+import { AsyncStorage } from "react-native";
 
 const { width, height } = Dimensions.get('window');
 
 export default class Home extends Component {
 
   constructor(props){
-    super(props)
+    super(props);
+    this.state={
+      "dailyScore":0,
+    }
+  }
+
+  componentDidMount(){
+    this.GetAsyncStorage()
+  }
+
+  async GetAsyncStorage(){
+    let dailyScore = await AsyncStorage.getItem('DailyScore');
+    if (Number(dailyScore) > 3) dailyScore = '3'
+    this.setState({'dailyScore':dailyScore});
   }
 
 
   render() {
+    const { dailyScore } = this.state
+    let dailyPoucentage = Number.parseFloat(Number(dailyScore)/3).toFixed(2)
     return (
       <View style = {styles.container}>
 
@@ -26,9 +42,13 @@ export default class Home extends Component {
 
           <View style = {[styles.bloc,styles.achievement]}>
 
-            <ProgressBar percent={0.67} color="#D0FFFF"/>
+          <ProgressBar percent={dailyPoucentage} color="#D0FFFF"/>
 
-            <Text style={styles.achievementText}>Encore 2 exercices !</Text>
+            {3-Number(dailyScore) != 0 ? 
+              <Text style={styles.achievementText}>Encore {3-dailyScore} exercices pour aujourd'hui !</Text>
+              :
+              <Text style={styles.achievementText}>Vous avez fait tous les exercices du jour !</Text>
+            }
           </View>
 
         </View>
