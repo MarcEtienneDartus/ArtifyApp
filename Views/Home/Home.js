@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     elevation: 4,
     shadowOpacity: 1.0,
+    marginBottom : 10,
   },
   image: {
     marginTop: 15,

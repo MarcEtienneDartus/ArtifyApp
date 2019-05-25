@@ -43,16 +43,16 @@ export default class Exercise extends Component {
           </View>
 
           <View style = {[styles.blocContainer,styles.achievementContainer]}>
-            <Text style={styles.title}>EXERCICES DE PHRASE</Text>
+            <Text style={styles.title}>EXERCICES DE PHRASES</Text>
 
             <View style = {[styles.bloc,styles.achievement]}>
               <View style = {styles.exerciceDuo}>
-                <SentenceExercise title="Texte" desc="Le soleil levant" color="#FF6666"/>
-                <SentenceExercise title="Fable" desc="Le Corbeau et le Renard" color="#FFA439"/>
+                <SentenceExercise ratings={['', '', '']} title="Texte" desc="Le soleil levant" color="#FF6666"/>
+                <SentenceExercise ratings={['', '']} title="Fable" desc="Le Corbeau et le Renard" color="#FFA439"/>
               </View>
               <View style = {styles.exerciceDuo}>
-                <SentenceExercise title="Chanson" desc="Renard et la belette" color="#FF66F9"/>
-                <SentenceExercise title="Voir plus" desc="" color="#4478FF"/>
+                <SentenceExercise ratings={['', '', '', '']} title="Chanson" desc="Renard et la belette" color="#FF66F9"/>
+                <SentenceExercise ratings={[]} title="Voir plus" desc="" color="#4478FF"/>
               </View>
 
             </View>
@@ -60,9 +60,9 @@ export default class Exercise extends Component {
 
         </View>
 
-        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Test')}}>
+        {/* <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Test')}}>
                 <Text>TEST ECRITURE</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
       </View>
     )
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-around',
     width : width*0.85,
-    marginTop: 20,
+    marginTop: 10,
   },
   circle2:{
     height: width*0.45,
@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     elevation: 4,
     shadowOpacity: 1.0,
+    marginBottom: 10,
   },
   image: {
     marginTop: 15,

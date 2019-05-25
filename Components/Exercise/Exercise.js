@@ -31,16 +31,16 @@ export default class Exercise extends Component {
 
   Button = ({item}) => {
     return(
-      <TouchableOpacity onPress={()=>{this.HandleAnswer(item.key)}}>
+      <TouchableOpacity onPress={() => this.HandleAnswer(item.key)}>
         <Text style={styles.text}>{item.key}</Text>
       </TouchableOpacity>
     )
   }
 
   render() {
-    const { list, ExerciseType, instructions } = this.props
+    const { list, ExerciseType, instructions } = this.props;
     return (
-      <ExerciseFrame instructions={instructions} ExerciseType={ExerciseType}>
+      <ExerciseFrame instructions={instructions} ExerciseType={ExerciseType} onBackPress={() => this.props.onBackPress()}>
         <View>
             <FlatList
               data={list[0]}

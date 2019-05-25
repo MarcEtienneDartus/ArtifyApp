@@ -62,11 +62,13 @@ export default class ExerciseFrame extends Component {
         <View style={styles.circle}></View>
         <View style={styles.circle2}></View>
         <View style={styles.title}>
-          {this.imageExercise()}
-          <Text style={styles.text}>{ExerciseType}</Text>
+          <TouchableOpacity onPress={() => this.props.onBackPress()}>
+            <Icon name="left" size={30}/>
+          </TouchableOpacity>
           <TouchableOpacity onPress={this.HandleSpeaker}>
             <Icon name="sound" size={40}/>
           </TouchableOpacity>
+          {this.imageExercise()}
         </View>
         <View style = {styles.tabsContainer}>
             {/* <View style={styles.absoluteShadow} /> */}
@@ -84,6 +86,8 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
+    paddingLeft : 10,
+    paddingRight: 20,
   },
   tabsContainer: {
     width: 0.9 * height,
@@ -127,6 +131,7 @@ const styles = StyleSheet.create({
     display:'flex',
     flexDirection: 'row',
     alignContent: 'center',
+    justifyContent: 'space-between',
   },
   text:{
     color:'black',
