@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native'
 import ProgressBar from '../../Components/ProgressBar'
+import { AsyncStorage } from "react-native";
 import firebase from '../../Providers/firebase'
 
 const { width, height } = Dimensions.get('window');
@@ -9,20 +10,31 @@ export default class UserProfile extends Component {
 
   constructor(props){
     super(props)
-    // this.userUid = firebase.auth().currentUser.uid
+    this.state={
+      "ScoreLettres":0,
+      "ScoreSyllabes":0,
+      "ScoreMots":0,
+      "ScoreEcriture":0,
+    }
   }
 
   componentDidMount(){
-    // firebase.database().ref('user/'+this.userUid+'/').once('value',snapshot=>{
-    //   if(snapshot.val() == null)
-    //   {
-    //     this.setState({contentLoaded: true, noData:true}, this.Animate())
-    //   }
-    // })
+    this.GetAsyncStorage()
   }
 
+  async GetAsyncStorage(){
+    const ScoreLettres = await AsyncStorage.getItem('ScoreLettres');
+    const ScoreSyllabes = await AsyncStorage.getItem('ScoreSyllabes');
+    const ScoreMots = await AsyncStorage.getItem('ScoreMots');
+    const ScoreEcriture = await AsyncStorage.getItem('ScoreEcriture');
+    this.setState({"ScoreLettres":ScoreLettres});
+    this.setState({"ScoreSyllabes":ScoreSyllabes});
+    this.setState({"ScoreMots":ScoreMots});
+    this.setState({"ScoreEcriture":ScoreEcriture});
+  }
 
   render() {
+    const { ScoreLettres, ScoreSyllabes, ScoreMots, ScoreEcriture } = this.state
     return (
       <View style = {styles.container}>
         
@@ -32,10 +44,10 @@ export default class UserProfile extends Component {
         <View style = {[styles.blocContainer,styles.skillsContainer]}>
           <Text style={styles.title}>RESUME DES COMPETENCES</Text>
           <View style = {[styles.bloc,styles.skills]}>
-            <ProgressBar percent={0.86} color="#FC82FF" title="Lettres"/>
-            <ProgressBar percent={0.61} color="#FF8C8C" title="Syllabes"/>
-            <ProgressBar percent={0.42} color="#FFCC8F" title="Mots"/>
-            <ProgressBar percent={0.09} color="#A7FFBD" title="Phrases"/>
+            <ProgressBar percent={ScoreLettres} color="#FC82FF" title="Lettres"/>
+            <ProgressBar percent={ScoreSyllabes} color="#FF8C8C" title="Syllabes"/>
+            <ProgressBar percent={ScoreMots} color="#FFCC8F" title="Mots"/>
+            <ProgressBar percent={ScoreEcriture} color="#A7FFBD" title="Ecriture"/>
           </View>
         </View>
 

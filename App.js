@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Platform, StatusBar, SafeAreaView } from 'react-native'
 import AppRoot from './Navigation/navigation';
 import { AppLoading, Font as expoFont } from 'expo';
-import Letter from './Views/Letter/Letter';
-import Syllable from './Views/Syllable/Syllable';
-import Word from './Views/Word/Word';
-import Writing from './Views/Writing/Writing';
+import { AsyncStorage } from "react-native";
+import Lecture from './Views/Lecture/Lecture';
 
 cacheFonts = fonts => {
   return fonts.map(font => expoFont.loadAsync(font));
@@ -18,6 +16,18 @@ export default class App extends Component {
       assetsLoaded: false,
       isSignedIn: false,
     }
+  }
+
+  componentDidMount(){
+    this.SetAsyncStorage()
+  }
+
+  async SetAsyncStorage(){
+    await AsyncStorage.setItem('ScoreLettres', '0.89');
+    await AsyncStorage.setItem('ScoreSyllabes', '0.61');
+    await AsyncStorage.setItem('ScoreMots', '0.42');
+    await AsyncStorage.setItem('ScoreEcriture', '0.15');
+    await AsyncStorage.setItem('DailyScore', '1');
   }
 
   async loadAssetsAsync(){
@@ -58,11 +68,8 @@ export default class App extends Component {
 
   renderMain = assetsLoaded => (  
     assetsLoaded ? 
-      <AppRoot />
-      // <Letter/>
-      // <Syllable/>
-      // <Word/>
-      // <Writing/>
+      // <AppRoot />
+      <Lecture/>
       :
       <AppLoading
             startAsync={this.loadAssetsAsync}
