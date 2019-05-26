@@ -24,8 +24,13 @@ export default class Letter extends Component {
 
   render() {
     return (
-      <Exercise instructions={'Cliquez sur la lettre. '+this.word} ExerciseType={'Lettre'} list={[this.list1,this.list2,this.list3]} answer={this.word} onBackPress={() => this.props.navigation.goBack()}>
-      </Exercise>
+      <Exercise 
+      instructions={'Cliquez sur la lettre. '+this.word}
+      ExerciseType={'Lettre'}
+      list={[this.list1,this.list2,this.list3]}
+      answer={this.word}
+      onBackPress={() => this.props.navigation.goBack()}
+      onSuccess={()=> this.props.navigation.navigate('WritingScreen',{word:this.word})}/>
     )
   }
 }

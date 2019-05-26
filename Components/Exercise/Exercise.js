@@ -32,6 +32,7 @@ export default class Exercise extends Component {
       if(this.answer.length == 2) this.UpdateScore('ScoreSyllabes')
       if(this.answer.length > 2) this.UpdateScore('ScoreMots') 
       this.UpdateScore('DailyScore') 
+      this.props.onSuccess()
     } 
     else this.TextToSpeech('Ce n\'est pas la bonne réponse essaye encore !')
   }

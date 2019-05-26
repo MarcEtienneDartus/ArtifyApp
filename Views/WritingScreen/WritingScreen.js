@@ -26,7 +26,7 @@ export default class WritingScreen extends React.Component {
 
   handleSignature = signature => {
     this.setState({ signature });
-    this.props.navigation.navigate('Success',{image:signature});
+    this.props.navigation.navigate('Success',{image:signature,word:this.word});
   };
  
   render() {
@@ -49,15 +49,6 @@ export default class WritingScreen extends React.Component {
         <View style = {[styles.line,styles.l4]}></View>
 
         <View style={{ flex: 1, zIndex:2 }}>
-            {/* <View style={styles.preview}>
-            {this.state.signature ? (
-                <Image
-                resizeMode={"contain"}
-                style={{ width: 335, height: 114 }}
-                source={{ uri: this.state.signature }}
-                />
-            ) : null}
-            </View> */}
             <Signature
             onOK={this.handleSignature}
             descriptionText=""
@@ -107,7 +98,7 @@ const styles = StyleSheet.create({
       opacity: 0.15,
   },
   line:{
-    width: height*0.8,
+    width: height*0.9,
     height: 2,
     position: 'absolute',
     alignSelf: 'center',
