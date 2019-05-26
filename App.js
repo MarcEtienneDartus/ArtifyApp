@@ -3,7 +3,6 @@ import { StyleSheet, View, Platform, StatusBar, SafeAreaView } from 'react-nativ
 import AppRoot from './Navigation/navigation';
 import { AppLoading, Font as expoFont } from 'expo';
 import { AsyncStorage } from "react-native";
-import Lecture from './Views/Lecture/Lecture';
 
 cacheFonts = fonts => {
   return fonts.map(font => expoFont.loadAsync(font));

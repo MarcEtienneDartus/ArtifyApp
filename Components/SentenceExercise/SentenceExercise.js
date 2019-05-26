@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Dimensions, Image} from 'react-native';
+import { Text, StyleSheet, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -11,13 +11,13 @@ export default class SentenceExercise extends Component {
 
   render() {
     return (
-      <View style = {[styles.container,{backgroundColor: this.props.color}]}>
+      <TouchableOpacity onPress={() => this.props.onPress()} style = {[styles.container,{backgroundColor: this.props.color}]}>
         <Text style={styles.title}>{this.props.title}</Text>
-        <Text style={styles.desc}>{this.props.desc}</Text>
+        <Text numberOfLines={3} style={styles.desc}>{this.props.desc}</Text>
         <View style={styles.rowStars}>
-          {this.props.ratings.map(item => <Image style={styles.starImage} source={require('../../assets/star.png')} resizeMode='contain'/>)}
+          {this.props.ratings.map(nitro => <Image style={styles.starImage} source={require('../../assets/star.png')} resizeMode='contain'/>)}
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 }
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   desc:{
     color: "#fff",
-    fontSize:18,
+    fontSize:12,
     fontFamily: 'PoppinsMedium',
   },
   rowStars: {
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     height: height*0.05,
   }, 
   starImage:{
-    width: width*0.05,
-    height: width*0.05,
+    width: width*0.04,
+    height: width*0.04,
     margin: 1
   },
 })
