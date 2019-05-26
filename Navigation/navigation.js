@@ -19,6 +19,7 @@ import Syllable from '../Views/Syllable/Syllable';
 import Word from '../Views/Word/Word';
 
 import Test from '../Views/Test/Test';
+import LectureExercise from '../Views/LectureExercise/LectureExercise';
 
 import { CustomTabBar } from '../Components';
 import Colors from '../shared/Colors';
@@ -92,6 +93,13 @@ const ExerciseStack = createStackNavigator({
     },
     Test: {
         screen: Test,
+        navigationOptions: {
+            header: null,
+            animationEnabled: true,
+        }
+    },
+    LectureExercise: {
+        screen : LectureExercise,
         navigationOptions: {
             header: null,
             animationEnabled: true,

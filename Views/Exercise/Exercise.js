@@ -47,12 +47,32 @@ export default class Exercise extends Component {
 
             <View style = {[styles.bloc,styles.achievement]}>
               <View style = {styles.exerciceDuo}>
-                <SentenceExercise ratings={['', '', '']} title="Texte" desc="Le soleil levant" color="#FF6666"/>
-                <SentenceExercise ratings={['', '']} title="Fable" desc="Le Corbeau et le Renard" color="#FFA439"/>
+                <SentenceExercise 
+                    ratings={['', '', '']} 
+                    title="Fable" 
+                    desc="La cigale et la fourmi" 
+                    onPress={() => this.props.navigation.navigate('LectureExercise', {type: 'La cigale et la fourmi'})}
+                    color="#FF6666"/>
+                <SentenceExercise 
+                    ratings={['', '']} 
+                    title="Fable" 
+                    desc="Le Corbeau et le Renard" 
+                    onPress={() => this.props.navigation.navigate('LectureExercise', {type: 'Le Corbeau et le Renard'})}
+                    color="#FFA439"/>
               </View>
               <View style = {styles.exerciceDuo}>
-                <SentenceExercise ratings={['', '', '', '']} title="Chanson" desc="Renard et la belette" color="#FF66F9"/>
-                <SentenceExercise ratings={[]} title="Voir plus" desc="" color="#4478FF"/>
+                <SentenceExercise 
+                    ratings={['', '', '', '']} 
+                    title="Fable" 
+                    desc="La Grenouille qui veut se faire aussi grosse que le Boeuf" 
+                    onPress={() => this.props.navigation.navigate('LectureExercise', {type: 'La Grenouille qui veut se faire aussi grosse que le Boeuf'})}
+                    color="#FF66F9"/>
+                <SentenceExercise 
+                    ratings={[]} 
+                    title="Voir plus" 
+                    desc="" 
+                    onPress={() => alert("D'autres exercices sont à venir !")}
+                    color="#4478FF"/>
               </View>
 
             </View>
