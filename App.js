@@ -68,8 +68,8 @@ export default class App extends Component {
 
   renderMain = assetsLoaded => (  
     assetsLoaded ? 
-      // <AppRoot />
-      <Lecture/>
+      <AppRoot />
+      //<Lecture/>
       :
       <AppLoading
             startAsync={this.loadAssetsAsync}

@@ -11,10 +11,12 @@ export default class ProgressBar extends Component {
   }
 
   render() {
+    let percent = this.props.percent
+    if(percent>1) percent = 1
     return (
       <View style = {styles.container}>
         {this.hasTitle &&<Text style={styles.title}>{this.props.title}</Text>}
-        <Text style={styles.achievementText}>{this.props.percent*100 + "%"}</Text>
+        <Text style={styles.achievementText}>{Number.parseFloat(percent*100).toFixed(0) + "%"}</Text>
         <View style= {styles.progressBar}>
             <View style= {[styles.progressBarInter,{backgroundColor:this.props.color,width: width*0.75*this.props.percent}]}></View>
         </View>

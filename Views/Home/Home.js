@@ -16,6 +16,10 @@ export default class Home extends Component {
 
   componentDidMount(){
     this.GetAsyncStorage()
+    const { navigation } = this.props;
+    this.focusListener = navigation.addListener("didFocus", () => {
+      this.GetAsyncStorage()
+    });
   }
 
   async GetAsyncStorage(){

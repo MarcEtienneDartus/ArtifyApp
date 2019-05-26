@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, FlatList, Dimensions, TouchableOpacity } from 'react-native'
 import ExerciseFrame from '../ExerciseFrame/ExerciseFrame';
 import { Speech } from 'expo';
+import { AsyncStorage } from "react-native";
 
 const { width, height } = Dimensions.get('window');
 
@@ -25,8 +26,21 @@ export default class Exercise extends Component {
   }
 
   HandleAnswer = (key) =>{
-    if(this.answer == key) this.TextToSpeech('Bravo, tu as trouvé la bonne réponse')
+    if(this.answer == key){
+      this.TextToSpeech('Bravo, tu as trouvé la bonne réponse')
+      if(this.answer.length == 1) this.UpdateScore('ScoreLettres')
+      if(this.answer.length == 2) this.UpdateScore('ScoreSyllabes')
+      if(this.answer.length > 2) this.UpdateScore('ScoreMots') 
+      this.UpdateScore('DailyScore') 
+    } 
     else this.TextToSpeech('Ce n\'est pas la bonne réponse essaye encore !')
+  }
+
+  UpdateScore = async (score) =>{
+    let  points = parseFloat(await AsyncStorage.getItem(score));
+    if(score == 'DailyScore') points += 1
+    else points += 0.03
+    AsyncStorage.setItem(score,points.toString());
   }
 
   Button = ({item}) => {
