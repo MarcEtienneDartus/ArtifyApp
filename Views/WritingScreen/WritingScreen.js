@@ -4,13 +4,13 @@ import { ScreenOrientation } from 'expo';
 import Signature from 'react-native-signature-canvas';
 
 const { width, height } = Dimensions.get('window');
+const ratio = width/411.42857142857144;
  
-export default class SignatureScreen extends React.Component {
+export default class WritingScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { signature: null,
-                   text : "Juice",
-                 };
+    this.state = { signature: null,};
+    this.word = this.props.navigation.getParam("word", "No word")
   }
  
   componentWillMount() {
@@ -26,7 +26,7 @@ export default class SignatureScreen extends React.Component {
 
   handleSignature = signature => {
     this.setState({ signature });
-    alert("OK")
+    this.props.navigation.navigate('Success',{image:signature});
   };
  
   render() {
@@ -39,9 +39,14 @@ export default class SignatureScreen extends React.Component {
 
       <View style={{ flex: 1 }}>
 
-        <View style = {styles.testView}>
-            <Text style = {styles.text}>{this.state.text}</Text>
+        <View style = {styles.backgroundView}>
+            <Text style = {styles.text}>{this.word}</Text>
         </View>
+
+        <View style = {[styles.line,styles.l1]}></View>
+        <View style = {[styles.line,styles.l2]}></View>
+        <View style = {[styles.line,styles.l3]}></View>
+        <View style = {[styles.line,styles.l4]}></View>
 
         <View style={{ flex: 1, zIndex:2 }}>
             {/* <View style={styles.preview}>
@@ -87,7 +92,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 10
   },
-  testView:{
+  backgroundView:{
       position: 'absolute',
     //   top: -width*0.25,
       alignSelf: 'center',
@@ -97,8 +102,32 @@ const styles = StyleSheet.create({
   },
   text:{
       fontFamily: 'Clicker',
-      fontSize: 220,
+      fontSize: 250*ratio,
       letterSpacing:2,
       opacity: 0.15,
-  }
+  },
+  line:{
+    width: height*0.8,
+    height: 2,
+    position: 'absolute',
+    alignSelf: 'center',
+    zIndex:0,
+    opacity: 0.5,
+  },
+  l1:{
+    backgroundColor: "#0979FD",
+    top: 60*ratio,
+  },
+  l2:{
+    backgroundColor: "#1DFD09",
+    top: 140 * ratio,
+  },
+  l3:{
+    backgroundColor: "#1DFD09",
+    top: 230*ratio,
+  },
+  l4:{
+    backgroundColor: "#441000",
+    top: 290*ratio,
+  },
 });

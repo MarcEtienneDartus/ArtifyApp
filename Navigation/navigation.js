@@ -18,7 +18,8 @@ import Letter from '../Views/Letter/Letter';
 import Syllable from '../Views/Syllable/Syllable';
 import Word from '../Views/Word/Word';
 
-import Test from '../Views/Test/Test';
+import WritingScreen from '../Views/WritingScreen/WritingScreen';
+import Success from '../Views/Success/Success';
 
 import { CustomTabBar } from '../Components';
 import Colors from '../shared/Colors';
@@ -90,8 +91,15 @@ const ExerciseStack = createStackNavigator({
             animationEnabled: true,
         }
     },
-    Test: {
-        screen: Test,
+    WritingScreen: {
+        screen: WritingScreen,
+        navigationOptions: {
+            header: null,
+            animationEnabled: true,
+        }
+    },
+    Success: {
+        screen: Success,
         navigationOptions: {
             header: null,
             animationEnabled: true,
