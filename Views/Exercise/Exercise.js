@@ -60,7 +60,7 @@ export default class Exercise extends Component {
 
         </View>
 
-        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Test')}}>
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('WritingScreen',{word:'globe'})}}>
                 <Text>TEST ECRITURE</Text>
         </TouchableOpacity>
 
