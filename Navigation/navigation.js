@@ -19,7 +19,6 @@ import Syllable from '../Views/Syllable/Syllable';
 import Word from '../Views/Word/Word';
 
 import LectureExercise from '../Views/LectureExercise/LectureExercise';
-import Test from '../Views/Test/Test';
 import Success from '../Views/Success/Success';
 import WritingScreen from '../Views/WritingScreen/WritingScreen';
 
