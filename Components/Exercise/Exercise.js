@@ -21,7 +21,8 @@ export default class Exercise extends Component {
   }
 
   TextToSpeech = (text) => {
-    if(this.isSpeaking) Speech.stop()
+    if(this.isSpeaking) 
+      Speech.stop()
     Speech.speak(text, this.SpeachOption)
   }
 

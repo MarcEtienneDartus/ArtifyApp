@@ -65,9 +65,9 @@ export default class ExerciseFrame extends Component {
           <TouchableOpacity onPress={() => this.props.onBackPress()}>
             <Icon name="left" size={30}/>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.HandleSpeaker}>
+          {this.props.instructions !== '' && <TouchableOpacity onPress={this.HandleSpeaker}>
             <Icon name="sound" size={40}/>
-          </TouchableOpacity>
+          </TouchableOpacity>}
           {this.imageExercise()}
         </View>
         <View style = {styles.tabsContainer}>
