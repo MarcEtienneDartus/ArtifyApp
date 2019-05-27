@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Platform, StatusBar, SafeAreaView } from 'react-native'
 import AppRoot from './Navigation/navigation';
-import { AppLoading, Font as expoFont } from 'expo';
+import { AppLoading, Font as expoFont, Asset } from 'expo';
 import { AsyncStorage } from "react-native";
 
 cacheFonts = fonts => {
   return fonts.map(font => expoFont.loadAsync(font));
+}
+
+cacheImages = images => {
+  return images.map(image => {
+    if (typeof image === 'string') {
+      return Image.prefetch(image); //fetched images web
+    } 
+    else {
+      return Asset.fromModule(image).downloadAsync(); //local images
+    }
+  });
 }
 export default class App extends Component {
 
@@ -31,6 +42,16 @@ export default class App extends Component {
 
   async loadAssetsAsync(){
 
+    const imageAssets = cacheImages([
+      require('./assets/facebook.png'),
+      require('./assets/google.png'),
+      require('./assets/icon.png'),
+      require('./assets/letters.png'),
+      require('./assets/star.png'),
+      require('./assets/syll.png'),
+      require('./assets/words.png'),
+    ]);
+      
     const fontAssets = cacheFonts([{
       PoppinsBlack: require('./assets/Fonts/Poppins/Poppins-Black.ttf'),
       PoppinsXBold: require('./assets/Fonts/Poppins/Poppins-ExtraBold.ttf'),
@@ -55,7 +76,7 @@ export default class App extends Component {
       
       Clicker: require('./assets/Fonts/Clicker/ClickerScript-Regular.ttf'),
     }]);
-    await Promise.all([...fontAssets]);
+    await Promise.all([...imageAssets, ...fontAssets]);
   }
 
   renderStatusBar = () => (

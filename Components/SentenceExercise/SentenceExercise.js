@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo';
 
 const { width, height } = Dimensions.get('window');
 
@@ -11,12 +12,14 @@ export default class SentenceExercise extends Component {
 
   render() {
     return (
-      <TouchableOpacity onPress={() => this.props.onPress()} style = {[styles.container,{backgroundColor: this.props.color}]}>
-        <Text style={styles.title}>{this.props.title}</Text>
-        <Text numberOfLines={3} style={styles.desc}>{this.props.desc}</Text>
-        <View style={styles.rowStars}>
-          {this.props.ratings.map(nitro => <Image style={styles.starImage} source={require('../../assets/star.png')} resizeMode='contain'/>)}
-        </View>
+      <TouchableOpacity onPress={() => this.props.onPress()} style={styles.container}>
+          <LinearGradient colors={this.props.colors} style={styles.gradient}>
+              <Text style={styles.title}>{this.props.title}</Text>
+              <Text numberOfLines={3} style={styles.desc}>{this.props.desc}</Text>
+              <View style={styles.rowStars}>
+                {this.props.ratings.map(nitro => <Image style={styles.starImage} source={require('../../assets/star.png')} resizeMode='contain'/>)}
+              </View>
+          </LinearGradient>
       </TouchableOpacity>
     )
   }
@@ -27,8 +30,13 @@ const styles = StyleSheet.create({
     width: width*0.38,
     height: height*0.19,
     borderRadius: 20,
-    padding: 10,
   },  
+  gradient: {
+    flex:1,
+    borderRadius: 20,
+    padding: 10,
+    justifyContent: 'space-between',
+  },
   title:{
       color: "#fff",
       fontSize:23,
