@@ -68,6 +68,27 @@ const HomeStack = createStackNavigator({
             animationEnabled: true,
         }
     },
+    WritingScreen: {
+        screen: WritingScreen,
+        navigationOptions: {
+            header: null,
+            animationEnabled: true,
+        }
+    },
+    LectureExercise: {
+        screen : LectureExercise,
+        navigationOptions: {
+            header: null,
+            animationEnabled: true,
+        }
+    },
+    Success: {
+        screen: Success,
+        navigationOptions: {
+            header: null,
+            animationEnabled: true,
+        }
+    }
 })
 
 HomeStack.navigationOptions = ({ navigation }) => {
@@ -87,27 +108,6 @@ HomeStack.navigationOptions = ({ navigation }) => {
 const ExerciseStack = createStackNavigator({
     Exercise: {
         screen: Exercise,
-        navigationOptions: {
-            header: null,
-            animationEnabled: true,
-        }
-    },
-    WritingScreen: {
-        screen: WritingScreen,
-        navigationOptions: {
-            header: null,
-            animationEnabled: true,
-        }
-    },
-    LectureExercise: {
-        screen : LectureExercise,
-        navigationOptions: {
-            header: null,
-            animationEnabled: true,
-        }
-    },
-    Success: {
-        screen: Success,
         navigationOptions: {
             header: null,
             animationEnabled: true,

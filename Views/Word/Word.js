@@ -3,7 +3,7 @@ import Exercise from '../../Components/Exercise/Exercise';
 
 const mot = 
 [
-  [{key: 'pechule'}, {key: 'lupeche'},{key: 'chelupe'}, {key: 'peluche'},{key: 'luchepe'}, {key: 'chepelu'}],
+  [{key: 'peluche'}, {key: 'lupeche'},{key: 'chelupe'}, {key: 'pechule'},{key: 'luchepe'}, {key: 'chepelu'}],
   [{key: 'aligator'}, {key: 'toraliga'}, {key: 'gaalitor'}, {key: 'torgalita'}, {key: 'litagota'}, {key: 'chepelu'}],
   [{key: 'supermarché'}, {key: 'chésupermarch'},{key: 'marchésuper'}, {key: 'persurmarché'},{key: 'chémarpersu'}, {key: 'marsuperché'}],
   [{key: 'trotinette'}, {key: 'netteroti'},{key: 'tronetteti'}, {key: 'nettetitro'},{key: 'titronette'}, {key: 'tinettetro'}],
@@ -42,7 +42,8 @@ export default class Word extends Component {
       list={[this.list1,this.list2,this.list3]}
       answer={this.word}
       onBackPress={() => this.props.navigation.goBack()}
-      onSuccess={()=> this.props.navigation.navigate('WritingScreen',{word:this.word})}/>
+      onSuccess={()=> this.props.navigation.navigate('WritingScreen',{word:this.word})}
+    />
     )
   }
 }

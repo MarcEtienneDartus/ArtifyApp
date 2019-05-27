@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, Text } from 'react-native';
-import { ScreenOrientation } from 'expo';
 import Signature from 'react-native-signature-canvas';
 
 const { width, height } = Dimensions.get('window');
@@ -11,16 +10,6 @@ export default class WritingScreen extends React.Component {
     super(props);
     this.state = { signature: null,};
     this.word = this.props.navigation.getParam("word", "No word")
-  }
- 
-  componentWillMount() {
-    this.changeScreenOrientation(ScreenOrientation.Orientation.LANDSCAPE)
-  }
-  componentWillUnmount() {
-    this.changeScreenOrientation(ScreenOrientation.Orientation.PORTRAIT)
-  }
-  changeScreenOrientation(orientation) {
-    ScreenOrientation.allowAsync(orientation);
   }
 
 

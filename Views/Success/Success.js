@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native'
 import Colors from '../../shared/Colors';
+import { ScreenOrientation } from 'expo';
 
 const { width, height } = Dimensions.get('window');
 
@@ -10,6 +11,13 @@ export default class Success extends Component {
       super(props)
       this.image = this.props.navigation.getParam("image", "")
       this.word = this.props.navigation.getParam("word", "No word")
+  }
+
+  componentWillUnmount() {
+    this.changeScreenOrientation(ScreenOrientation.Orientation.PORTRAIT)
+  }
+  changeScreenOrientation(orientation) {
+    ScreenOrientation.allowAsync(orientation);
   }
 
 
@@ -27,7 +35,7 @@ export default class Success extends Component {
 
         <Image style = {styles.image} source = {{uri:this.image}} resizeMode="contain"/>
 
-        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.pop(2)}>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.pop(3)}>
         <Text style={styles.textButton}>CONTINUER</Text>
         </TouchableOpacity>
 
