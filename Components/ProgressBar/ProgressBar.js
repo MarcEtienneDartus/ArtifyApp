@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderWidth: 2,
     borderColor:"#333",
-    justifyContent: 'center'
+    justifyContent: 'center',
+    overflow: 'hidden'
   },
   progressBarInter:{
     height: height*0.04-4,
