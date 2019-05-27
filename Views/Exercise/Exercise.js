@@ -52,13 +52,13 @@ export default class Exercise extends Component {
                     title="Fable" 
                     desc="La cigale et la fourmi" 
                     onPress={() => this.props.navigation.navigate('LectureExercise', {type: 'La cigale et la fourmi'})}
-                    color="#FF6666"/>
+                    colors={["#FF6666", "#FF4466"]}/>
                 <SentenceExercise 
                     ratings={['', '']} 
                     title="Fable" 
                     desc="Le Corbeau et le Renard" 
                     onPress={() => this.props.navigation.navigate('LectureExercise', {type: 'Le Corbeau et le Renard'})}
-                    color="#FFA439"/>
+                    colors={["#FFD439", "#FFA439"]}/>
               </View>
               <View style = {styles.exerciceDuo}>
                 <SentenceExercise 
@@ -66,13 +66,13 @@ export default class Exercise extends Component {
                     title="Fable" 
                     desc="La Grenouille qui veut se faire aussi grosse que le Boeuf" 
                     onPress={() => this.props.navigation.navigate('LectureExercise', {type: 'La Grenouille qui veut se faire aussi grosse que le Boeuf'})}
-                    color="#FF66F9"/>
+                    colors={["#FF66F9", "#FF66C4"]}/>
                 <SentenceExercise 
                     ratings={[]} 
                     title="Voir plus" 
                     desc="" 
                     onPress={() => alert("D'autres exercices sont à venir !")}
-                    color="#4478FF"/>
+                    colors={["#4478FF", "#7778ff"]}/>
               </View>
 
             </View>
