@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Dimensions } from 'react-native';
-import { Asset } from 'expo';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../shared/Colors';
 

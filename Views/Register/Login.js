@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, TouchableWithoutFeedback, Dimensions } from 'react-native';
-import { Asset } from 'expo';
 import Colors from '../../shared/Colors';
 
 const { width, height } = Dimensions.get('window');

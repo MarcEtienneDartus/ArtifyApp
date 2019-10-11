@@ -3,5 +3,4 @@ const Colors = {
     lightgray: '#C4C4C4',
     mediumgray: '#666'
 }
-
 export default Colors;

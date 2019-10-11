@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Dimensions, TouchableOpacity, Image } from 'react-native'
-import { ScreenOrientation, Speech } from 'expo';
+import { ScreenOrientation } from 'expo';
+import * as Speech from 'expo-speech';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const { width, height } = Dimensions.get('window');
@@ -18,14 +19,11 @@ export default class ExerciseFrame extends Component {
     }
   }
 
-  componentWillMount() {
-    this.changeScreenOrientation(ScreenOrientation.Orientation.LANDSCAPE)
+  async componentWillMount() {
+    await ScreenOrientation.lockAsync(ScreenOrientation.Orientation.LANDSCAPE)
   }
-  componentWillUnmount() {
-    this.changeScreenOrientation(ScreenOrientation.Orientation.PORTRAIT)
-  }
-  changeScreenOrientation(orientation) {
-    ScreenOrientation.allowAsync(orientation);
+  async componentWillUnmount() {
+    await ScreenOrientation.lockAsync(ScreenOrientation.Orientation.PORTRAIT)
   }
 
   componentDidMount() {

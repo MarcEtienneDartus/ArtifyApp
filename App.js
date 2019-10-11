@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Platform, StatusBar, SafeAreaView } from 'react-native'
 import AppRoot from './Navigation/navigation';
-import { AppLoading, Font as expoFont, Asset } from 'expo';
+import { AppLoading } from 'expo';
+import { Asset } from 'expo-asset';
 import { AsyncStorage } from "react-native";
+import * as expoFont from 'expo-font';
 
 cacheFonts = fonts => {
   return fonts.map(font => expoFont.loadAsync(font));

@@ -3,7 +3,7 @@
     "name": "Artify",
     "slug": "ArtifyApp",
     "privacy": "public",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android"
@@ -25,6 +25,6 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": ""
+    "description": "Mobile application helping dyspraxic children having reading or writing problems. The application offers simple and varied exercises according to the needs of the child. A gamified interface makes it possible to follow its progression and encourages learning through play."
   }
 }

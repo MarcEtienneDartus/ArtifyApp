@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, FlatList, Dimensions, TouchableOpacity } from 'react-native'
 import ExerciseFrame from '../ExerciseFrame/ExerciseFrame';
-import { Speech } from 'expo';
+import * as Speech from 'expo-speech';
 import { AsyncStorage } from "react-native";
 
 const { width, height } = Dimensions.get('window');
